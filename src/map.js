@@ -21,8 +21,6 @@ export function initMap(ymaps, containerId) {
 
   myMap.geoObjects.add(objectManager);
 
-  objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-
   loadList().then(data => {
     objectManager.add(data);
   });
