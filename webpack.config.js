@@ -8,6 +8,7 @@ module.exports = {
     path: PUBLIC_PATH,
     filename: 'index.js'
   },
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: PUBLIC_PATH,
     compress: true,
