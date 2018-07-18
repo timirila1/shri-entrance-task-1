@@ -6,7 +6,7 @@ export function loadList() {
     .then(mapServerData);
 }
 
-export function loadDetails(id) 
-{
-  return fetch(`/api/stations/${id}`).then(response => response.json());
+export function loadDetails(id) {
+  return fetch(`/api/stations/${id}`)
+    .then(response => response.json());
 }
