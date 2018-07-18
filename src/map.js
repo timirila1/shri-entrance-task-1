@@ -28,16 +28,14 @@ export function initMap(ymaps, containerId) {
   // details
   objectManager.objects.events.add('click', event => {
     const objectId = event.get('objectId');
-    const obj = objectManager.objects.getById(objectId);
+    const object = objectManager.objects.getById(objectId);
 
-    objectManager.objects.balloon.open(objectId);
+    // TODO: Разобраться как сначала показать балун с загрузкой
 
-    if (!obj.properties.details) {
-      loadDetails(objectId).then(data => {
-        obj.properties.details = data;
-        objectManager.objects.balloon.setData(obj);
-      });
-    }
+    loadDetails(objectId).then(data => {
+        object.properties.details = data;
+        objectManager.objects.balloon.open(objectId);
+    });
   });
 
   // filters

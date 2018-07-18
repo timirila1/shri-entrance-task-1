@@ -1,5 +1,6 @@
 import { createChart } from './chart';
 
+// TODO: В задании сказано что надо еще отобразить координаты
 export function getDetailsContentLayout(ymaps) {
   const BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
     `<div class="details-info">
@@ -27,7 +28,7 @@ export function getDetailsContentLayout(ymaps) {
         {% endif %}
     `,
     {
-      build: () => {
+      build: function() {
         BalloonContentLayout.superclass.build.call(this);
 
         const { details } = this.getData().object.properties;
@@ -43,7 +44,7 @@ export function getDetailsContentLayout(ymaps) {
         }
       },
 
-      clear: () => {
+      clear: function() {
         if (this.connectionChart) {
           this.connectionChart.destroy();
         }
