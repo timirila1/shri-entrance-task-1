@@ -30,7 +30,6 @@ export function initMap(ymaps, containerId) {
     const objectId = event.get('objectId');
     const object = objectManager.objects.getById(objectId);
 
-    // TODO: Разобраться как сначала показать балун с загрузкой
     loadDetails(objectId).then(data => {
       object.properties.details = data;
       objectManager.objects.balloon.open(objectId);
@@ -41,7 +40,6 @@ export function initMap(ymaps, containerId) {
   const listBoxControl = createFilterControl(ymaps);
   myMap.controls.add(listBoxControl);
 
-  // TODO: Проверить где используется этот код
   const filterMonitor = new ymaps.Monitor(listBoxControl.state);
   filterMonitor.add('filters', filters => {
     objectManager.setFilter(
